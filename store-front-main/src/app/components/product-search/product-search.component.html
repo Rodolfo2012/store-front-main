@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Search Products</h2>
+  <form (ngSubmit)="searchProducts()">
+    <div class="form-group">
+      <label for="name">Product Name:</label>
+      <input type="text" class="form-control" id="name" [(ngModel)]="name" name="name">
+    </div>
+    <button type="submit" class="btn btn-primary">Search</button>
+  </form>
+  <div *ngIf="products.length > 0">
+    <h3>Search Results</h3>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Category ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.name }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.category }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+<div class="container">
+  <h2>Create Product</h2>
+  <form (ngSubmit)="createProduct()" [formGroup]="produtoForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" formControlName="name">
+    </div>
+    <div class="form-group">
+      <label for="name">Description:</label>
+      <input type="text" class="form-control" id="description" formControlName="description">
+    </div>
+    <div class="form-group">
+      <label for="price">Price:</label>
+      <input type="number" class="form-control" id="price"  formControlName="price">
+    </div>
+    <div class="form-group">
+      <label for="categoryId">Category</label>
+      <select class="form-control" formControlName="category">
+        <option *ngFor="let category of categories"
+          [ngValue]="category">
+              {{category.name}}
+        </option>
+     </select>
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary mx-2" [disabled]="!produtoForm.valid">Create</button>
+    <button type="button" class="btn btn-secondary" (click)="goBack()">Cancel</button>
+  </form>
+</div>
